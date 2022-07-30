@@ -8,9 +8,22 @@
     <meta name="author" content="" />
     <title>Seher TUT Cardvisit</title>
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyC_ooXaKdthSi0z8MyEQ__bE8n7iM_d4TE",
+            authDomain: "pretty-3be33.firebaseapp.com",
+            databaseURL: "https://pretty-3be33-default-rtdb.firebaseio.com",
+            projectId: "pretty-3be33",
+            storageBucket: "pretty-3be33.appspot.com",
+            messagingSenderId: "881387124210",
+            appId: "1:881387124210:web:fc0da9857f7c1467fde76b",
+            measurementId: "G-XYVJP5FP8X"
+        };
+        const app = firebase.initializeApp(firebaseConfig);
+    </script>
     <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
 
@@ -32,6 +45,7 @@
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Seminerler ve Kurslar</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Sınavlar</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Referanslar</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#statistics">İstatistikler</a></li>
             </ul>
         </div>
     </nav>
@@ -40,12 +54,13 @@
 
         <section class="resume-section" id="about">
             <div class="resume-section-content">
+
                 <h1 class="mb-0">
                     Seher
                     <span class="text-primary">TUT</span>
                 </h1>
                 <div class="subheading mb-5">
-                    Taşdelen Mah. Çekmeköy/İstanbul ·
+                    Taşdelen Mah. Çekmeköy/İstanbul · (532) 171-3896 ·
                     <a href="mailto:name@email.com">sehertut96@gmail.com</a>
                 </div>
                 <p class="lead mb-5">26 Mayıs 1996 tarihinde Ordu da doğdum.İlkokulu Lüleburgaz da okudum.Ortaokulu ve liseyi Bitlis Tatvan da okudum.Sonrasında 15 Eylül 2015 yılında Burdur Mehmet Akif Ersoy üniversitesi Gıda mühendisliği bölümünü kazandım.Haziran 2020 yılında
@@ -177,6 +192,19 @@
                 </ul>
             </div>
         </section>
+
+        <section class="resume-section" id="statistics">
+            <div class="resume-section-content">
+                <h2 class="mb-5">İstatistikler</h2>
+                <ul class="fa-ul mb-0">
+                    <li>
+                        <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span> <b>Ziyaretçi Sayısı: <span id="visitorsCounter" style="color:red; font-size: 18px;"></span></b>
+                    </li>
+
+                </ul>
+            </div>
+        </section>
+        <hr class="m-0" />
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

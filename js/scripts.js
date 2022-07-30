@@ -1,15 +1,11 @@
-/*!
-* Start Bootstrap - Resume v7.0.5 (https://startbootstrap.com/theme/resume)
-* Copyright 2013-2022 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
-*/
-//
-// Scripts
-// 
-
 window.addEventListener('DOMContentLoaded', event => {
+    var oneSection = false;
 
-    // Activate Bootstrap scrollspy on the main nav element
+    function beforeVisit(callback) {
+        getCounter((responseCounter) => {
+            setCounter(responseCounter);
+        })
+    }
     const sideNav = document.body.querySelector('#sideNav');
     if (sideNav) {
         new bootstrap.ScrollSpy(document.body, {
@@ -18,12 +14,11 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     };
 
-    // Collapse responsive navbar when toggler is visible
     const navbarToggler = document.body.querySelector('.navbar-toggler');
     const responsiveNavItems = [].slice.call(
         document.querySelectorAll('#navbarResponsive .nav-link')
     );
-    responsiveNavItems.map(function (responsiveNavItem) {
+    responsiveNavItems.map(function(responsiveNavItem) {
         responsiveNavItem.addEventListener('click', () => {
             if (window.getComputedStyle(navbarToggler).display !== 'none') {
                 navbarToggler.click();
@@ -31,4 +26,22 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+    beforeVisit(function(params) {
+
+    })
+
+    function getCounter(callback) {
+        firebase.database().ref('counter/').on('value', data => {
+            callback(data.val());
+        })
+    }
+
+    function setCounter(val) {
+        if (!oneSection) {
+            var intCounter = (parseInt(val) + 1).toString();
+            document.getElementById('visitorsCounter').innerHTML = intCounter;
+            oneSection = true;
+            firebase.database().ref('counter/').set(intCounter);
+        }
+    }
 });
