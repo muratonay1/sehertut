@@ -29,7 +29,6 @@ window.addEventListener('DOMContentLoaded', event => {
     beforeVisit(function(params) {
 
     })
-
     function getCounter(callback) {
         firebase.database().ref('counter/').on('value', data => {
             callback(data.val());
