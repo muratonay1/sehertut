@@ -11,6 +11,8 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
     <script>
         const firebaseConfig = {
             apiKey: "AIzaSyC_ooXaKdthSi0z8MyEQ__bE8n7iM_d4TE",
@@ -24,6 +26,20 @@
         };
         const app = firebase.initializeApp(firebaseConfig);
     </script>
+    <script>
+        $.ajax({
+            type: "GET",
+            url: "https://api64.ipify.org?format=json",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(response) {
+                $('#ip').html("Your IP: " + response.ip);
+            },
+            error: function() {
+                alert('Bir sorun olustu. Yeniden deneyin');
+            }
+        });
+    </script>
     <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
 
@@ -31,6 +47,7 @@
 </head>
 
 <body id="page-top">
+    <h2 id="ip" style="text-align: center"></h2>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">
