@@ -37,7 +37,7 @@
                 $('#ip').html("Your IP: " + response.ip);
             },
             error: function() {
-                alert('Bir sorun olustu. Yeniden deneyin');
+                $('#ip').html("ipify ile bağlantı kurulamadı.");
             }
         });
     </script>
